@@ -12,6 +12,9 @@ public class Program {
         Conta c2 = new Conta (6243,21585,9,150.0);
         c2.saldo();
         
+        ContaCorrente c3 = new ContaCorrente();
+        c3.setSaldo(140.0);
+        c3.saldo();
     }
     
 }
