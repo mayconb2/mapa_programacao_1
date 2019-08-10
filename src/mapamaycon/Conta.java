@@ -4,11 +4,12 @@ package mapamaycon;
 
 public class Conta {
     
-    private int agencia;
-    private int numero;
-    private int digito;
-    private double saldo;
+    protected int agencia;
+    protected int numero;
+    protected int digito;
+    protected double saldo;
 
+    
     public Conta() {
     }
 
@@ -51,7 +52,6 @@ public class Conta {
         this.saldo = saldo;
     }
     
-    //Na conta corrente, vincular ao limite.
     public void saque(double val){
         
         if (this.saldo < val) {
@@ -59,6 +59,7 @@ public class Conta {
         } else {
             this.saldo -= val;
         }
+        
                 
     }
    
@@ -68,6 +69,13 @@ public class Conta {
     }
     
     public void transferencia(double val, Conta ct){
+        
+        if (this.saldo < val) {
+            System.out.println("Não há limite para esta operação");
+        } else {
+        this.saldo -= val;
+        ct.deposito(val);
+        }
         
         
     }
