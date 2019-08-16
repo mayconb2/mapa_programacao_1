@@ -23,8 +23,12 @@ public class Program {
         cp1.transferencia(6000.00, cp2);
         cp1.saque(4000.00);
         
+        System.out.println("-------------------------------------------");
         
-        
+        cc1.saldo();
+        cc2.saldo();
+        cp1.saldo();
+        cp2.saldo();
     }
     
 }
