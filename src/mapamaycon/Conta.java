@@ -54,10 +54,18 @@ public class Conta {
     
     public void saque(double val){
         
-        if (this.saldo < val) {
-            System.out.println("Não há limite para esta operação");
+        if (this.getSaldo() < val) {
+            System.out.println("Não há limite para esta operação. O saldo da conta "
+                    + this.getNumero() + "-" + getDigito()
+                    + " é: " 
+                    + this.getSaldo() 
+                    + " e o valor de saque foi: "
+                    + val);
         } else {
-            this.saldo -= val;
+            this.setSaldo(this.getSaldo() - val);
+            System.out.println("Operação realizada com Sucesso! Novo saldo da conta "
+                + this.getNumero() + "-" + getDigito()
+                + " é: " + this.getSaldo());
         }
         
                 
@@ -65,15 +73,23 @@ public class Conta {
    
     public void deposito(double val){
         
-        this.saldo += val;
+        this.setSaldo(this.getSaldo() + val);
+        System.out.println("Operação realizada com Sucesso! Novo saldo da conta "
+                + this.getNumero() + "-" + getDigito()
+                + " é: " + this.getSaldo());
     }
     
     public void transferencia(double val, Conta ct){
         
         if (this.saldo < val) {
-            System.out.println("Não há limite para esta operação");
+            System.out.println("Não há limite para esta operação. O saldo da conta "
+                    + this.getNumero() + "-" + getDigito()
+                    + " é: " 
+                    + this.getSaldo() 
+                    + " e o valor de transferência foi: "
+                    + val);
         } else {
-        this.saldo -= val;
+        this.setSaldo(this.getSaldo() - val);
         ct.deposito(val);
         }
         
@@ -81,9 +97,9 @@ public class Conta {
     }
     
     public void saldo(){
-        System.out.println("Agência: " + this.agencia +
-                " Número: " + this.numero +
-                " Digito: " + this.digito +
-                " Saldo atual disponível: " + this.saldo);
+        System.out.println("Agência: " + this.getAgencia() +
+                " Número: " + this.getNumero() +
+                " Digito: " + this.getDigito() +
+                " Saldo atual disponível: " + this.getSaldo());
     }
 }

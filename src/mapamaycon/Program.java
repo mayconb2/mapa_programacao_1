@@ -11,18 +11,16 @@ public class Program {
         
         cc1.saque(50.00);
         cp1.saque(100.00);
-        cc1.saldo();
-        cp1.saldo();
+
         
         cc1.transferencia(100.00, cp2);
-        cc1.transferencia(100.00, cp2);
-        cc1.saldo();
-        cp2.saldo();
+        cc2.transferencia(100.00, cp2);
+
         
-        cc1.transferencia(300.00, cp2);
+        cc1.transferencia(600.00, cp2);
         cc1.saque(300.00);
         
-        cp1.transferencia(4000.00, cp2);
+        cp1.transferencia(6000.00, cp2);
         cp1.saque(4000.00);
         
         

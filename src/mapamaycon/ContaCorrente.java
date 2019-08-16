@@ -9,35 +9,61 @@ public class ContaCorrente extends Conta {
     }
     
     private double limite;
-        
+
+    public double getLimite() {
+        return limite;
+    }
+
+    public void setLimite(double limite) {
+        this.limite = limite;
+    }
+    
+    
+    
     @Override
     public void saldo(){
-        System.out.println("Agência: " + this.agencia +
-                " Número: " + this.numero +
-                " Digito: " + this.digito +
-                " Saldo atual disponível: " + this.saldo +
-                " Limite: " + this.limite);
+        System.out.println("Agência: " + this.getAgencia() +
+                " Número: " + this.getNumero() +
+                " Digito: " + this.getDigito() +
+                " Saldo atual disponível: " + this.getSaldo() +
+                " Limite: " + this.getLimite());
     }
     
     @Override
     public void saque(double val){
-
-        if ((this.saldo + this.limite) < val) {
-            System.out.println("Não há limite para esta operação");
+        
+        double total = this.getSaldo() + this.getLimite();
+        if ((this.getSaldo() + this.getLimite()) < val) {
+            System.out.println("Não há limite para esta operação. O saldo da conta "
+                    + this.getNumero() + "-" + getDigito()
+                    + " com limite é: " 
+                    + total 
+                    + " e o valor de saque foi: "
+                    + val);
         } else {
-            this.saldo -= val;
+            this.setSaldo(this.getSaldo()-val);
+            System.out.println("Operação realizada com Sucesso! Novo saldo da conta "
+                + this.getNumero() + "-" + getDigito()
+                + " é: " + this.getSaldo());
         }
     }
     
     
     @Override
     public void transferencia(double val, Conta ct){
-
-        if ((this.saldo + this.limite) < val) {
-            System.out.println("Não há limite para esta operação");
+        
+        double total = this.getSaldo() + this.getLimite();
+        if ((this.getSaldo() + this.getLimite()) < val) {
+            System.out.println("Não há limite para esta operação. O saldo da conta "
+                    + this.getNumero() + "-" + getDigito()
+                    + " com limite é: " 
+                    + total 
+                    + " e o valor de saque foi: "
+                    + val);
         } else {
         this.saldo -= val;
-        ct.deposito(val);
+        this.setSaldo(this.getSaldo()-val);
+        ct.setSaldo(val);
         }    
     }
 

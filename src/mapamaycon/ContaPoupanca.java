@@ -9,8 +9,9 @@ public class ContaPoupanca extends Conta {
     }
     
     public void rendimento(double perc){
-        
-       this.saldo += this.saldo * perc;
+       
+       this.setSaldo(this.getSaldo() + this.getSaldo() * perc);
+
         
     }
     
